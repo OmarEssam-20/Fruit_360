@@ -27,7 +27,12 @@ The project compares:
 - **Image Size:** 100 × 100 pixels  
 - **Background:** Plain, controlled environment  
 - **Classes Used:** 5 fruit categories  
+The dataset used in this project is **Fruits-360**.
 
+Due to its large size, the dataset is not included in this repository.
+It can be downloaded from Kaggle using the following link:
+
+https://www.kaggle.com/datasets/moltean/fruits
 The controlled nature of the dataset makes it suitable for evaluating classical ML algorithms.
 
 ---
