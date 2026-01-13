@@ -27,23 +27,25 @@ The project compares:
 - **Image Size:** 100 × 100 pixels  
 - **Background:** Plain, controlled environment  
 - **Classes Used:** 5 fruit categories  
+
 The dataset used in this project is **Fruits-360**.
 
-Due to its large size, the dataset is not included in this repository.
+Due to its large size, the dataset is **not included** in this repository.  
 It can be downloaded from Kaggle using the following link:
 
 https://www.kaggle.com/datasets/moltean/fruits
-The controlled nature of the dataset makes it suitable for evaluating classical ML algorithms.
+
+The controlled nature of the dataset makes it suitable for evaluating classical machine learning algorithms.
 
 ---
 
 ## 🛠️ Preprocessing Steps
 1. Load images using OpenCV.
 2. Convert images to grayscale.
-3. Resize all images to 100 × 100 pixels.
-4. Flatten images into 1D vectors (10,000 features).
-5. Normalize pixel values to the range [0, 1].
-6. Split data into training and testing sets using stratified sampling.
+3. Resize all images to **100 × 100 pixels**.
+4. Flatten images into **1D vectors (10,000 features)**.
+5. Normalize pixel values to the range **[0, 1]**.
+6. Split data into training (80%) and testing (20%) sets using **stratified sampling**.
 
 ---
 
@@ -51,8 +53,8 @@ The controlled nature of the dataset makes it suitable for evaluating classical 
 - **Method:** Principal Component Analysis (PCA)
 - **Variance Retained:** 95%
 - **Feature Reduction:**  
-  - Before PCA: 10,000 features  
-  - After PCA: 137 features  
+  - Before PCA: **10,000 features**  
+  - After PCA: **137 features**
 
 ### Why PCA?
 - Reduces computational complexity  
@@ -73,22 +75,22 @@ The controlled nature of the dataset makes it suitable for evaluating classical 
   - F1-score
   - Confusion Matrix
 
-**Result:**  
+**Results:**
 - Accuracy ≈ **99.8%**
-- Only one misclassification on the test set
+- Only **one misclassification** on the test set
 
 ---
 
 ### 2️⃣ K-Means Clustering (Unsupervised Learning)
 - Applied to PCA-transformed features
-- Number of clusters: 5
+- Number of clusters: **5**
 - Evaluation metric:
   - Silhouette Score
 
-**Result:**  
+**Results:**
 - Silhouette Score ≈ **0.28**
 
-This score indicates moderate cluster separation, which is expected for image data.
+This score indicates **moderate cluster separation**, which is expected for image data due to visual similarities between different fruit classes.
 
 ---
 
@@ -104,17 +106,44 @@ This score indicates moderate cluster separation, which is expected for image da
 
 ---
 
+## 📚 Libraries Used
+
+The following Python libraries were used in this project:
+
+- **OpenCV (`cv2`)**  
+  Used for image processing tasks such as reading images, converting them to grayscale, and resizing them.
+
+- **OS (`os`)**  
+  Used for file and directory handling and navigating dataset folders.
+
+- **NumPy (`numpy`)**  
+  Used for numerical operations and efficient handling of image data.
+
+- **Matplotlib (`matplotlib.pyplot`)**  
+  Used for visualizing images, clusters, and model results.
+
+- **Scikit-learn (`sklearn`)**  
+  Used for machine learning tasks, including:
+  - `train_test_split`
+  - `StandardScaler`
+  - `PCA`
+  - `LogisticRegression`
+  - `KMeans`
+  - `accuracy_score`, `classification_report`, `confusion_matrix`
+
+---
+
 ## ⚠️ Limitations
 - Flattened pixel features do not capture spatial relationships.
 - Dataset images are captured under controlled conditions.
-- Grayscale conversion removes color information.
+- Grayscale conversion removes color information that may improve classification for some fruits.
 
 ---
 
 ## 🚀 Future Work
 - Use color-based or handcrafted image features.
 - Apply Convolutional Neural Networks (CNNs).
-- Test the model on real-world images.
+- Test the model on real-world images with complex backgrounds.
 - Explore alternative dimensionality reduction techniques.
 
 ---
